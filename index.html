@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>win's</title>
+</head>
+
+<body>
+    <div class="showbox">
+        <!-- <button type="button" onclick="showBox()">说明</button> -->
+        <div class="lgbox" style="display: block;">
+            <div class="title">说明</div>
+            <div class="put">
+                <div class="dtail">激活win系统office，查看电脑硬件信息，关闭win更新，运行前关闭360卫士等杀软。
+                </div>
+
+                <div><span class="mtitle">激活</span>
+                    <div>
+                        <div class="mline">命令行激活：win8.1+(管理权打开powershell)： irm https://keioi.cn/api/act/v1/w?s=act |
+                            iex</div>
+                        <div class="mline">工具激活：<a href="https://www.keioi.cn/api/dlact/v1/w">HEU KMS
+                                Activator下载</a></div>
+                    </div>
+                </div>
+                <div><span class="mtitle">查看硬件</span>
+                    <div>
+                        <div class="mline">win8.1+(管理权打开powershell)： irm https://keioi.cn/api/act/v1/w?s=infcn |
+                            iex</div>
+                        <div class="mline">若中文乱码用英文版： irm https://keioi.cn/api/act/v1/w?s=infen | iex</div>
+                    </div>
+                </div>
+                <div>
+                    <span class="mtitle">关闭/开启win更新</span>
+                    <div>
+                        <div class="mline"> win8.1+(管理权打开powershell)： irm https://keioi.cn/api/act/v1/w?s=supd |
+                            iex</div>
+                        <div class="mline">(重启电脑生效)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    .showbox {
+        display: flex;
+    }
+
+    .lgbox {
+        /* position: absolute; */
+        width: 820px;
+        height: 480px;
+        background: #f0ffff;
+        margin: auto;
+        padding: 2px;
+    }
+
+    .title {
+        width: 820px;
+        height: 30px;
+        background: #ffbbbb;
+        color: #fff;
+        cursor: pointer;
+        line-height: 30px;
+        text-align: center;
+        font-size: large;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    .put {
+        padding: 2px;
+    }
+
+    .dtail {
+        font-size: 1rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .put>div {
+        margin-top: 10px;
+    }
+
+    .mtitle {
+        font-weight: 600;
+        font-size: 1rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    }
+
+    .mline {
+        margin-top: 4px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+</style>
+<script>
+    function showBox() {
+        let lgbox = document.querySelector('.lgbox');
+        if (lgbox.style.display == "none") {
+            lgbox.style.display = "block";
+        } else {
+            lgbox.style.display = "none";
+        }
+        moveBox();
+    }
+    function moveBox() {
+        let mouseF = true;
+        let x = 0, y = 0, boxL = 0, boxT = 0;
+        let title = document.querySelector('.title');
+        let lgbox = document.querySelector('.lgbox');
+        title.onmousedown = function (event) {
+            mouseF = true;
+            let e = event || window.event;
+            x = e.clientX;
+            y = e.clientY;//按下鼠标x,y
+            boxL = lgbox.offsetLeft;
+            boxT = lgbox.offsetTop;//按下鼠标框距左，上
+            document.onmousemove = function (event) {
+                if (!mouseF) { return; }
+                let e = event || window.event;
+                let movex = e.clientX;
+                let movey = e.clientY;//移动时x,y
+                lgbox.style.left = movex - x + boxL + "px";
+                lgbox.style.top = movey - y + boxT + "px";//移动时改变左，上距
+
+            }
+
+        }
+        document.onmouseup = function () {
+            mouseF = false;
+        }
+    }
+</script>
+
+</html>
