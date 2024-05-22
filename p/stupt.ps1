@@ -2,7 +2,7 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-$DownloadURL = 'https://keioi.gitee.io/pc/p/stpwinupdate/stopupdate.cmd'
+$DownloadURL = 'https://keiooi.github.io/awin/p/stpwinupdate/stopupdate.cmd'
 $DownloadURL2 = 'https://keioi.gitee.io/pc/p/stpwinupdate/startupdate.cmd'
 
 $rand = Get-Random -Maximum 1000
