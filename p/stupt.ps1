@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
 $DownloadURL = 'https://keiooi.github.io/awin/p/stpwinupdate/stopupdate.cmd'
-$DownloadURL2 = 'https://keioi.gitee.io/pc/p/stpwinupdate/startupdate.cmd'
+$DownloadURL2 = 'https://keiooi.github.io/awin/p/stpwinupdate/startupdate.cmd'
 
 $rand = Get-Random -Maximum 1000
 $isAdmin = [bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
