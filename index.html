@@ -37,6 +37,21 @@
                         <div class="mline"> win8.1+(管理权打开powershell)： irm https://keioi.cn/api/act/v1/hb?s=supd |
                             iex</div>
                         <div class="mline">(重启电脑生效)</div>
+                        <div class="mline c">暂停20年</div>
+                        <div class="regcode" style="display: none;">
+                            <blockquote>
+                            Windows Registry Editor Version 5.00
+                            <br>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsUpdate\UX\Settings]
+                            <br>"FlightSettingsMaxPauseDays"=dword:00001b58
+                            <br>"PauseFeatureUpdatesStartTime"="2024-07-07T10:00:52Z"
+                            <br>"PauseFeatureUpdatesEndTime"="2043-09-05T09:59:52Z"
+                            <br>"PauseQualityUpdatesStartTime"="2024-07-07T10:00:52Z"
+                            <br>"PauseQualityUpdatesEndTime"="2043-09-05T09:59:52Z"
+                            <br>"PauseUpdatesStartTime"="2024-07-07T09:59:52Z"
+                            <br>"PauseUpdatesExpiryTime"="2043-09-05T09:59:52Z"
+                            <p>; 保存为reg格式文件，运行，再去选择暂停更新时间
+                            </blockquote>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,8 +118,57 @@
         margin-top: 4px;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+    
+    .c {
+        width: 80px;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.19);
+    }
+
+    .c:hover {
+        transform: translateX(1px) translateY(2px);
+    }
+
+    .regcode {
+        font-size:14px;
+        position: fixed;
+        overflow: auto;
+        margin-top: -230px;
+        margin-left: 80px;
+        width: 570px;
+        height: 240px;
+        background: #eef7c9;
+        border: outset #bdd65a 1px;
+        border-radius: 4px;
+        z-index: 20;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.19);
+    }
 </style>
 <script>
+    function showCode() {
+        let cdbox = document.querySelector('.regcode');
+        if (cdbox.style.display == "none") {
+            cdbox.style.display = "block";
+        } else {
+            cdbox.style.display = "none";
+        }
+
+    }
+    document.addEventListener('click', function (event) {
+        let cdbox = document.querySelector('.regcode');
+        let cbtn = document.querySelector('.c');
+        let isClickInside = cdbox.contains(event.target); // 检查点击是否在弹出层内部
+        let isClickbtn = cbtn.contains(event.target);
+        if (!isClickInside && !isClickbtn) { // 如果点击不在弹出层内部
+            cdbox.style.display = 'none'; // 关闭弹出层
+        }
+    })
+    let cbtn = document.querySelector('.c');
+    cbtn.addEventListener('click', function () {
+        showCode();
+    })
+    //
     function showBox() {
         let lgbox = document.querySelector('.lgbox');
         if (lgbox.style.display == "none") {
