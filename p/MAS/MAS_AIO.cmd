@@ -1,18 +1,18 @@
-@::r45f3r3-random
-@set masver=3.8
+@::sfh437frandom
+@set masver=3.9
 @setlocal DisableDelayedExpansion
 @echo off
 
 
 
-::  For command line switches, check mass()grave(dot)dev/command_line_switches
+::  For command line switches, check mass{}grave{dot}dev/command_line_switches
 ::  If you want to better understand script, read from separate files version. 
 
 
 
 ::============================================================================
 ::
-::   Homepage: mass()grave(dot)dev
+::   Homepage: mass{}grave{dot}dev
 ::      Email: mas.help@outlook.com
 ::
 ::============================================================================
@@ -2833,7 +2833,7 @@ call :dk_color %Gray% "Checking Old Office With Sub License    [Found. Update Of
 
 ::========================================================================================================================================
 
-::  mass()grave(dot)dev/office-license-is-not-genuine
+::  mass{}grave{dot}dev/office-license-is-not-genuine
 ::  Add registry keys for volume products so that 'non-genuine' banner won't appear 
 ::  Script already is using MAK instead of GVLK so it won't appear anyway, but registry keys are added incase Office installs default GVLK grace key for volume products
 
@@ -4158,13 +4158,13 @@ $MemoryStream.Close()
 ::
 ::  The files are encoded in base64 to make AIO version.
 ::
-::  mass()grave(dot)dev/ohook
+::  mass{}grave{dot}dev/ohook
 ::  Here you can find the files source code and info on how to rebuild the identical sppc.dll files
 ::
 ::  stackoverflow.com/a/35335273
 ::  Here you can check how to extract sppc.dll files from base64
 ::
-::  For any further question, feel free to contact us on mass()grave(dot)dev/contactus
+::  For any further question, feel free to contact us on mass{}grave{dot}dev/contactus
 ::
 ::========================================================================================================================================
 ::
@@ -5056,7 +5056,7 @@ set w10EsuEditions=Education-EducationN-Enterprise-EnterpriseN-Professional-Prof
 
 set minbuild=0
 if /i %tsedition%==ServerRdsh set minbuild=5552
-for %%# in (Core CoreN CoreCountrySpecific CoreSingleLanguage) do (if /i %tsedition%==%%# set minbuild=6156)
+for %%# in (Core CoreN CoreCountrySpecific CoreSingleLanguage IoTEnterprise) do (if /i %tsedition%==%%# set minbuild=6156)
 if /i %tsedition%==PPIPro set minbuild=6388
 
 set /a UBR=0
@@ -5085,10 +5085,6 @@ f520e45e-7413-4a34-a497-d2765967d094_Client-ESU-Year1_-%w10EsuEditions%-%w10EsuE
 1043add5-23b1-4afb-9a0f-64343c8f3f8d_Client-ESU-Year2_-%w10EsuEditions%-%w10EsuEditionsLaterAdded%
 83d49986-add3-41d7-ba33-87c7bfb5c0fb_Client-ESU-Year3_-%w10EsuEditions%-%w10EsuEditionsLaterAdded%
 0b533b5e-08b6-44f9-b885-c2de291ba456_Client-ESU-Year6[4-6y]_-%w10EsuEditions%-%w10EsuEditionsLaterAdded%
-b8527af1-5389-447c-9a88-2d1691ea33d3_Client-IoT-ESU-Year1_-IoTEnterprise-
-7b76ee02-0a75-4f08-85d5-bd0feadad0c0_Client-IoT-ESU-Year2_-IoTEnterprise-
-4dac5a0c-5709-4595-a32c-14a56a4a6b31_Client-IoT-ESU-Year3_-IoTEnterprise-
-f69e2d51-3bbd-4ddf-8da7-a145e9dca597_Client-IoT-ESU-Year6[4-6y]_-IoTEnterprise-
 ) do (
 for /f "tokens=1-3 delims=_" %%A in ("%%#") do (
 echo "%allapps%" | find /i "%%A" %nul1% && (
@@ -5414,7 +5410,7 @@ call :ts_process
 
 ::========================================================================================================================================
 
-::  mass()grave(dot)dev/office-license-is-not-genuine
+::  mass{}grave{dot}dev/office-license-is-not-genuine
 ::  Add registry keys for volume products so that 'non-genuine' banner won't appear 
 
 set "kmskey=HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\SoftwareProtectionPlatform\0ff1ce15-a989-479d-af46-f275c6370663"
@@ -5904,7 +5900,7 @@ call :dk_color %Gray% "Windows Update gets 1-3 years of ESU; 4-6 are unofficial 
 echo "%tsids%" | findstr /i "4afc620f-12a4-48ad-8015-2aebfbd6e47c 11be7019-a309-4763-9a09-091d1722ffe3" %nul1% && (
 call :dk_color %Gray% "ESU is not officially supported on Windows 8.1, but updates can be installed manually until January 2024."
 )
-echo "%tsids%" | findstr /i "0b533b5e-08b6-44f9-b885-c2de291ba456 f69e2d51-3bbd-4ddf-8da7-a145e9dca597" %nul1% && (
+echo "%tsids%" | findstr /i "83d49986-add3-41d7-ba33-87c7bfb5c0fb 0b533b5e-08b6-44f9-b885-c2de291ba456" %nul1% && (
 call :dk_color %Gray% "Windows Update gets 1-3 years of ESU; 4-6 are unofficial but may let you install LTSC updates manually."
 if exist %SysPath%\ClipESUConsumer.exe (%SysPath%\ClipESUConsumer.exe -evaluateEligibility)
 if exist %SysPath%\ClipESU.exe (%SysPath%\ClipESU.exe %nul%)
@@ -12716,7 +12712,7 @@ if %winbuild% GEQ 9200 (
 for /f "skip=2 tokens=2*" %%a in ('"reg query HKLM\SOFTWARE\Microsoft\Office\ClickToRun /v InstallPath" %nul6%') do if exist "%%b\root\Licenses16\ProPlus*.xrm-ms" set "_C16R=1"
 for /f "skip=2 tokens=2*" %%a in ('"reg query HKLM\SOFTWARE\Microsoft\Office\ClickToRun /v InstallPath /reg:32" %nul6%') do if exist "%%b\root\Licenses16\ProPlus*.xrm-ms" set "_C16R=1"
 if defined _C16R (
-REM  mass()grave(dot)dev/office-license-is-not-genuine
+REM  mass{}grave{dot}dev/office-license-is-not-genuine
 set _server=10.0.0.10
 call :_taskregserv
 echo Keeping the non-existent IP address 10.0.0.10 as %KS% Server.
@@ -13061,7 +13057,7 @@ exit /b
 
 ::============================================================================
 ::
-::   Homepage: mass()grave(dot)dev
+::   Homepage: mass{}grave{dot}dev
 ::      Email: mas.help@outlook.com
 ::
 ::============================================================================
@@ -14465,9 +14461,6 @@ set notfoundaltactID=
 if %_NoEditionChange%==1 exit /b
 
 for %%# in (
-188_IoTEnterprise__________________8ab9bdd1-1f67-4997-82d9-8878520837d9_73111121-5638-40f6-bc11-f1d7b0d64300_NPPR9-FWDCX-D2C8J-H872K-2Y%f%T43_Enterprise
-206_IoTEnterpriseK_________________80083eae-7031-4394-9e88-4901973d56fe_73111121-5638-40f6-bc11-f1d7b0d64300_NPPR9-FWDCX-D2C8J-H872K-2Y%f%T43_Enterprise
-191_IoTEnterpriseS-2021____________ed655016-a9e8-4434-95d9-4345352c2552_32d2fab3-e4a8-42c2-923b-4bf4fd13e6ee_M7XTQ-FN8P6-TTKYV-9D4CC-J4%f%62D_EnterpriseS-2021
 205_IoTEnterpriseSK________________d4f9b41f-205c-405e-8e08-3d16e88e02be_59eb965c-9150-42b7-a0ec-22151b9897c5_KBN8V-HFGQ4-MGXVD-347P6-PD%f%QGT_IoTEnterpriseS
 138_ProfessionalSingleLanguage_____a48938aa-62fa-4966-9d44-9f04da3f72f2_2de67392-b7a7-462a-b1ca-108dd189f588_W269N-WFGWX-YVC9B-4J6C9-T8%f%3GX_Professional
 139_ProfessionalCountrySpecific____f7af7d09-40e4-419c-a49b-eae366689ebd_2de67392-b7a7-462a-b1ca-108dd189f588_W269N-WFGWX-YVC9B-4J6C9-T8%f%3GX_Professional
@@ -18803,20 +18796,19 @@ call :dk_color %Gray% "Installed Office editions: %_oIds%"
 echo:
 
 for %%# in (
-"5440fd1f-7ecb-4221-8110-145efaa6372f_Insider Fast [Beta]  -    Insiders::DevMain   -"
-"64256afe-f5d9-4f86-8936-8840a6a4f5be_Monthly Preview      -    Insiders::CC        -"
-"492350f6-3a01-4f97-b9c0-c7c6ddf67d60_Monthly [Current]    -  Production::CC        -"
-"55336b82-a18d-4dd6-b5f6-9e5095c314a6_Monthly Enterprise   -  Production::MEC       -"
-"b8f9b850-328d-4355-9145-c59439a0c4cf_Semi Annual Preview  -    Insiders::FRDC      -"
-"7ffbc6bf-bc32-4f92-8982-f9dd17fd3114_Semi Annual          -  Production::DC        -"
-"ea4a4090-de26-49d7-93c1-91bff9e53fc3_DevMain Channel      -     Dogfood::DevMain   -"
-"b61285dd-d9f7-41f2-9757-8f61cba4e9c8_Microsoft Elite      -   Microsoft::DevMain   -"
-"f2e724c1-748f-4b47-8fb8-8e0d210e9208_Perpetual2019 VL     -  Production::LTSC      -"
-"1d2d2ea6-1680-4c56-ac58-a441c8c24ff9_Microsoft2019 VL     -   Microsoft::LTSC      -"
-"5030841d-c919-4594-8d2d-84ae4f96e58e_Perpetual2021 VL     -  Production::LTSC2021  -"
-"86752282-5841-4120-ac80-db03ae6b5fdb_Microsoft2021 VL     -   Microsoft::LTSC2021  -"
-"7983bac0-e531-40cf-be00-fd24fe66619c_Perpetual2024 VL     -  Production::LTSC2024  -"
-"c02d8fe6-5242-4da8-972f-82ee55e00671_Microsoft2024 VL     -   Microsoft::LTSC2024  -"
+"5440fd1f-7ecb-4221-8110-145efaa6372f_Beta    / Insider Fast    -   Insiders::DevMain  -"
+"64256afe-f5d9-4f86-8936-8840a6a4f5be_Current / Monthly Preview -   Insiders::CC       -"
+"492350f6-3a01-4f97-b9c0-c7c6ddf67d60_Current / Monthly         - Production::CC       -"
+"55336b82-a18d-4dd6-b5f6-9e5095c314a6_Monthly Enterprise        - Production::MEC      -"
+"7ffbc6bf-bc32-4f92-8982-f9dd17fd3114_Semi Annual Enterprise    - Production::DC       -"
+"ea4a4090-de26-49d7-93c1-91bff9e53fc3_DevMain Channel           -    Dogfood::DevMain  -"
+"b61285dd-d9f7-41f2-9757-8f61cba4e9c8_Microsoft Elite           -  Microsoft::DevMain  -"
+"f2e724c1-748f-4b47-8fb8-8e0d210e9208_Perpetual2019 VL          - Production::LTSC     -"
+"1d2d2ea6-1680-4c56-ac58-a441c8c24ff9_Microsoft2019 VL          -  Microsoft::LTSC     -"
+"5030841d-c919-4594-8d2d-84ae4f96e58e_Perpetual2021 VL          - Production::LTSC2021 -"
+"86752282-5841-4120-ac80-db03ae6b5fdb_Microsoft2021 VL          -  Microsoft::LTSC2021 -"
+"7983bac0-e531-40cf-be00-fd24fe66619c_Perpetual2024 VL          - Production::LTSC2024 -"
+"c02d8fe6-5242-4da8-972f-82ee55e00671_Microsoft2024 VL          -  Microsoft::LTSC2024 -"
 ) do (
 for /f "tokens=1-2 delims=_" %%A in ("%%~#") do (
 set bypass=
